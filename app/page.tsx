@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { User } from './api/customers/route';
 
 async function getData() {
@@ -19,6 +20,12 @@ export default async function Home() {
       <h1>Faker Test</h1>
       {customers.map((customer: User) => (
         <div className="py-2" key={customer._id}>
+          <Link
+            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            href={customer._id}
+          >
+            Single User Page
+          </Link>
           <p>
             Name: {customer.firstName} {customer.lastName}
           </p>
